@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--ctrl+shift+/
+javaEE에서는 객체를 bean이라고 얘기한다.
+<  -->
+	<!-- 이 xml 설정파일에 필요한 객체를 명시해 놓으면
+	스프링이 알아서 인스턴스를 생성해준다. 따라서 개발자는
+	자바코드 내에서 new할 필요 없다!! -->
+	<bean id="friPan" class="food.FriPan"></bean>
+	<bean id = "elecPan" class="food.ElecPan"></bean>
+	<bean id = "cook" class="food.Cook">
+	<constructor-arg index = "0">
+	<ref bean = "friPan"/>
+	</constructor-arg>
+	
+	</bean>
+	<bean id = "txt" class = "javax.swing.JTextField"> </bean>
+	<bean id = "bt" class = "javax.swing.JButton"> </bean>
+	<bean id = "myWin" class = "gui.MyWin"> 
+	<constructor-arg index="0">
+	<ref bean = "txt"/></constructor-arg>
+		<constructor-arg index="1">
+	<ref bean = "bt"/></constructor-arg>
+	</bean>
+	
+</beans>
